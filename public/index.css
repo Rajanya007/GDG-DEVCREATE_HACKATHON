@@ -1,0 +1,496 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #241a47f2;
+}
+
+#navbarSupportedContent {
+    /* display: flex; */
+    justify-content: end;
+}
+
+.nav-item,
+.footer_list_items {
+    padding: 8px;
+    display: flex;
+}
+
+
+
+.nav-link {
+    position: relative;
+    font-size: 15px;
+    color: white !important;
+}
+
+
+
+.nav-link:before,
+.footer_list_links:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #FFFF99;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+
+.nav-link:hover {
+    color: #FFFF99 !important;
+}
+
+
+
+.nav-link:hover:before,
+.footer_list_links:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+
+
+#navbar {
+    background-color: #1C143A !important;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 99;
+}
+
+.row {
+    width: 100%;
+    margin: 0;
+}
+
+#unorderList {
+    width: 70%;
+    justify-content: space-evenly;
+}
+
+.navbar-toggler {
+    color: #FFFF99 !important;
+    background-color: white;
+}
+
+#home {
+
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/pexels-fauxels-3183197.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#home-content-written {
+    padding: 30px;
+    margin-top: 56px;
+    height: 100vh;
+}
+
+div#home-content-written h2,
+
+h3,
+h4,
+h6 {
+    color: #FEC001;
+}
+
+div#home-content-written h1 {
+    font-size: 170px;
+}
+
+div#home-content-written h2 {
+    font-size: 60px;
+}
+
+div#home-content-written p {
+    margin: 50px 0 0 0;
+}
+
+#searching_taxi {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.24);
+    box-shadow: 0px 5px 15px #444444;
+    backdrop-filter: blur(24px);
+
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.input_fields {
+    color: black;
+    background-color: white;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.input_tags {
+    border: none;
+    outline: none;
+}
+
+.label_tags {
+    /* width: 20%; */
+
+    font-family: 'Cabin';
+    font-style: normal;
+    /* font-weight: 500; */
+    /* font-size: 24px;
+            line-height: 29px; */
+
+    color: #444444;
+}
+
+::placeholder {
+    /* width: 20%; */
+
+    font-family: 'Cabin';
+    font-style: normal;
+    font-weight: 500;
+    /* font-size: 24px;
+            line-height: 29px; */
+
+    color: #444444;
+
+}
+
+#search_taxi_btn {
+    margin-top: 25px;
+}
+
+
+
+#service_us {
+    color: #FEC001;
+    padding: 20px 0 0 0;
+}
+
+.writting_div {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    ;
+    flex-direction: column;
+}
+
+.ride_us_heads {
+    color: #FFAE00;
+}
+
+.ride_us_sec {
+    margin-top: 50px;
+
+}
+
+.ride_us_img {
+    width: 100%;
+    height: 37vh;
+    ;
+}
+
+#about_head {
+    color: #FFAE00;
+    padding: 20px;
+}
+
+#searching_taxi_div {
+    padding: 20px;
+    margin-top: 35px;
+}
+
+#mobile_sec_service_us {
+    display: none;
+}
+
+#our_fleet_head {
+    color: #FFAE00;
+
+}
+
+#our_fleet_div {
+
+    background: linear-gradient(0deg, rgb(212 183 208 / 20%), rgb(0 0 0 / 28%)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgb(212 184 212 / 20%)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgb(55 48 56 / 20%)), url(images/getting-Out-bg.png);
+    padding-top: 30px;
+    margin-top: 35px;
+    /* min-height: 80vh */
+    /* mix-blend-mode: exclusion; */
+}
+
+#our_fleet_head_div {
+    padding: 30px;
+}
+
+#footer_book_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, white 0%, white 50%, #1C143A 50%, #1C143A 100%);
+    margin-top: 20px;
+}
+
+
+
+.footer_list_links:before {
+
+    background-color: #FEC001;
+
+}
+
+.footer_list_links {
+    position: relative;
+    font-size: 15px;
+    color: #FEC001 !important;
+    padding: 0.5rem;
+    text-decoration: none;
+}
+
+.footer_list_items {
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_img {
+    width: 95%;
+    padding: 10px;
+
+}
+
+#footer_img_holder {
+    justify-content: space-evenly;
+}
+
+#copyright_div {
+    color: white;
+    justify-content: center;
+    padding: 30px;
+}
+
+.loc_tags:hover {
+    cursor: pointer;
+
+
+
+}
+
+.loc_img {
+
+    width: 40%;
+
+}
+
+* {
+    box-sizing: border-box
+}
+
+
+
+.mySlides {
+    display: none;
+    /* background-color: rgb(28, 20, 5s8); */
+    text-align: center;
+    animation-name: fade;
+    animation-duration: 1.5s;
+    background: rgba(28, 20, 58, 0.75);
+    box-shadow: 0px 5px 15px #444444;
+    backdrop-filter: blur(50px);
+    font-family: 'Cabin', sans-serif;
+    color: white;
+}
+
+.slider_img {
+    vertical-align: middle;
+}
+
+
+.slideshow1 {
+    max-width: 65vw;
+    position: relative;
+    margin: auto;
+    padding: 40px 0;
+}
+
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: #FEC001;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    text-decoration: none;
+}
+
+.prev,
+.next:hover {
+    color: #FEC001;
+}
+
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+
+
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    /* font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center; */
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+.car_name {
+    color: #FFAE00;
+    font-size: 20px;
+}
+
+.slide_con {
+    padding-top: 40px;
+}
+
+.starting_price_text {
+    padding: 25px;
+}
+
+#about_taxi {
+    padding-top: 70px;
+}
+
+.rainbow-eff {
+    /* display: block; */
+
+    background: linear-gradient(50deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+
+    .prev,
+    .next,
+    .text {
+        font-size: 11px
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    #navbarSupportedContent {
+        justify-content: center;
+    }
+
+    #mobile_sec_service_us {
+        display: block;
+        visibility: visible;
+    }
+
+
+
+}
+
+.line {
+    width: 30%;
+    height: 0.3rem;
+    background: #FFFF99;
+}
+
+.service-sec-img {
+    width: 10rem;
+}
+
+.service-cards {
+    background-color: #2f2550;
+    border: none;
+    padding: 15px;
+}
+
+.service-sec-inside-div:hover {
+    border: 2px solid #7000e1;
+    cursor: pointer;
+    transition: 1s;
+  
+    /* Safari 3-8 */
+    transform: scale(1.2);
+}
+
+.service-sec-inside-div {
+    background-color: white;
+    border: 2px solid red;
+    border-radius: 10px;
+    padding: 50px;
+    transition: 1s all ease-in-out;
+}
+.ass-partner-div{
+    background-color: white;
+    margin-top: 50px;
+    border: 6px solid #b28155a1;
+    padding: 23px;
+}
+.ass-partners-pics{
+    width:12rem;
+}
+.light-red-color{
+    background-color: #fff0f0;;
+}
+#loginInfo{
+    display: none;
+}
+.uniqueId{
+    color: white;
+}

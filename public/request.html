@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@1,600&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Serif+4:ital,wght@1,600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet"> -->
+    <!-- <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script> -->
+
+    <!-- <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" /> -->
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+
+    <script>
+        ethereum.request({ method: 'eth_requestAccounts' });
+        getAccount();
+        async function getAccount() {
+            var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            console.log(accounts);
+            var account = accounts[0];
+
+            // showAccount.innerHTML = account;
+        }
+        async function acc() {
+            var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            console.log(accounts);
+            var account = accounts[0];
+            document.getElementById("basic-url4").value = account;
+        }
+    </script>
+    <title>Wallet</title>
+
+
+    <script>
+
+        function desc() {
+            if (localStorage.getItem("access") != null) {
+                console.log(1)
+                var user = localStorage.getItem("user")
+                document.getElementById("loginInfo").classList.remove("d-none");
+                document.getElementById("loginInfo").classList.add("d-flex");
+                // document.getElementById("logPhoto").src=user.photoURL;
+                document.getElementById("loginInfo").classList.add("flex-column");
+                document.getElementById("login").style.display = "none";
+                document.getElementById("uniqueId").innerHTML = `Welcome ${user}`;
+            }
+            else {
+                window.location = "index.html"
+            }
+
+
+        }
+        window.onload = desc;
+    </script>
+    <style>
+        td {
+            color: white;
+        }
+
+        .rainbow-eff {
+            /* display: block; */
+            background: linear-gradient(50deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+
+</head>
+<!-- <script>
+    $(document).ready(function () {
+        $(this).scrollTop(0);
+    });
+</script> -->
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id='navbar' data-aos="zoom-in-up">
+        <div>
+            <img src="" />
+        </div>
+        <div class="container-fluid">
+            <a class="navbar-brand rainbow-eff" href="#" style=" font-size: 25px;">Payscape</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- <div style="display: flex; justify-content: center;"></div> -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center" id="unorderList">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html/#service_us">SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html/#service_us1">ABOUT US</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html/#footer">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-warning " id="login">Log In</button>
+                        <div class="d-none" id="loginInfo" style="position: relative;">
+                            <span class="uniqueId dropdown-toggle" id="uniqueId" data-bs-toggle="dropdown"
+                                aria-expanded="false" type="button"></span>
+                            <ul class="dropdown-menu" style="margin-top: 20px;">
+                                <li><a class="dropdown-item" href="./payment-gateway.html">Payment Gateway</a></li>
+                                <li><a class="dropdown-item" href="./wallet.html">Wallet</a></li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><button class="btn btn-primary dropdown-item" id="lgot">Log Out</button></li>
+                            </ul>
+
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="d-flex justify-content-center" style="height:100vh ; margin-top: 100px;">
+        <center>
+            <table class="table" style="width: 70vw;">
+                <thead>
+                    <tr>
+                        <th scope="col" style="color: #ffbf48;">Money Lended By</th>
+                        <th scope="col" style="color: #ffbf48;">Amount(Ethers)</th>
+                        <th scope="col" style="color: #ffbf48;">Rate of Interset</th>
+                        <th scope="col" style="color: #ffbf48;"></th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </center>
+
+    </div>
+
+
+    <script>
+        var rates = JSON.parse(localStorage.rate);
+        var sentBy = JSON.parse(localStorage.sentBy);
+        var amount = JSON.parse(localStorage.amount2);
+        for (let i = 0; i < sentBy.length; i++) {
+            document.getElementById("tbody").innerHTML += `<tr><td>${sentBy[i]}</td><td id="ig${i}">${amount[i]}</td><td>${parseInt(rates[i]) + 0.5}</td><td><button class="btn btn-success ig${i}" onclick=run(this)>ACCEPT</button></td></tr>`
+            console.log("hi");
+
+        }
+        function run(e) {
+            var id = e.classList[2];
+            var amount = parseFloat(document.getElementById(id).innerText);
+
+            async function specfunc() {
+                const provider1 = new ethers.providers.Web3Provider(window.ethereum)
+                await provider1.send("eth_requestAccounts", []);
+                const signer = provider1.getSigner()
+                console.log(signer)
+                await provider1.getBlockNumber()
+                async function getBalance(wallet) {
+                    let balance = await provider1.getBalance(wallet);
+                    // we use the code below to convert the balance from wei to eth
+                    balance = ethers.utils.formatEther(balance);
+                    console.log(balance);
+                }
+                var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                console.log(accounts);
+                var account = accounts[0];
+
+                getBalance(account);
+
+                // console.log(`payWithMetamask(receiver="0x3ff7FB506d75130af63605eb1dD03d7F1E06eC5C", sender="0x084d81a7F6DEC530ea174e89C7aDacbdFCf65393", strEther="0.01")`)
+
+
+                // Request account access if needed
+                await ethereum.enable();
+
+
+                let provider = new ethers.providers.Web3Provider(ethereum);
+
+
+                const params = [{
+                    from: "0x3ff7FB506d75130af63605eb1dD03d7F1E06eC5C",
+                    to: "0x8842d5f06d59768820c6CC76a3cc4abd1F91B3AB",
+                    value: ethers.utils.parseUnits(amount.toString(), 'ether').toHexString()
+                }];
+
+                const transactionHash = await provider.send('eth_sendTransaction', params)
+                if (transactionHash != "") {
+                    console.log('transactionHash is ' + transactionHash);
+                    alert("Payment SuccessFull. Your Transaction Hash is " + transactionHash);
+                    sentBy.push(document.getElementById("basic-url4").value);
+                    rate.push(document.getElementById("basic-url2").value);
+                    amount2.push(document.getElementById("basic-url1").value);
+                    // addToBase(document.getElementById("basic-url4").value, ethers.utils.parseUnits(document.getElementById("basic-url1").value.toString(), 'ether').toHexString(), transactionHash, document.getElementById("basic-url2").value)
+                    localStorage.setItem("sentBy", JSON.stringify(sentBy));
+                    localStorage.setItem("rate", JSON.stringify(rate));
+                    localStorage.setItem("amount2", JSON.stringify(amount2));
+                    location.reload();
+
+                }
+
+
+
+
+            }
+            specfunc();
+        }
+    </script>
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js"
+        // import { ethers } from "https://cdn.ethers.io/lib/ethers-5.2.esm.min.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCyXBHH_TugR8PO9kWDc_fg2ElxzBIx8hE",
+            authDomain: "wallet-49b6d.firebaseapp.com",
+            projectId: "wallet-49b6d",
+            storageBucket: "wallet-49b6d.appspot.com",
+            messagingSenderId: "502565024",
+            appId: "1:502565024:web:9a2b0e551ac366d08e21c5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        let provider = new GoogleAuthProvider();
+        const auth = getAuth(app);
+        document.getElementById("login").addEventListener("click", googleLogin);
+        document.getElementById("lgot").addEventListener("click", googLgot);
+        document.getElementById("finalsubmit1").addEventListener("click", temp);
+        function googleLogin() {
+            console.log("Login")
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    console.log(result)
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    const credential = GoogleAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    // The signed-in user info.
+                    const user = result.user;
+                    document.getElementById("loginInfo").classList.remove("d-none");
+                    document.getElementById("loginInfo").classList.add("d-flex");
+
+                    document.getElementById("loginInfo").classList.add("flex-column");
+                    document.getElementById("login").style.display = "none";
+                    document.getElementById("loginInfo").innerHTML = `<span class="nav-link">${user.displayName}</span>` + `<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="./images/user.png" class="user-img" alt="" srcset="">
+                                    
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    
+                                    <a class="dropdown-item " href=".">Payment gatway</a>
+                                    
+                                    <a class="dropdown-item" href="" >Wallet</a>
+                                    <hr>
+                                     <button class="btn btn-outline-primary" id="lgout">LogOut</button>`;
+                    // ...
+                }).catch((error) => {
+                    // Handle Errors here.
+                    console.log(error);
+                    // ...
+                });
+        }
+        function googLgot() {
+            console.log("Logout");
+            signOut(auth).then(() => {
+                // Sign-out successful.
+                localStorage.clear();
+                console.log("Logout Successful");
+                document.getElementById("loginInfo").classList.remove("d-flex");
+                document.getElementById("loginInfo").classList.add("d-none");
+                location.reload();
+
+
+                document.getElementById("login").style.display = "block"
+            }).catch((error) => {
+                // An error happened.
+            });
+
+        }
+
+
+        // async function addToBase(from, amount, transactionHash, roi) {
+        //     try {
+        //         const docRef = await addDoc(collection(db, "users"), {
+        //             from: from,
+        //             to: "0x3ff7FB506d75130af63605eb1dD03d7F1E06eC5C",
+        //             value: amount,
+        //             transactionHash: transactionHash,
+        //             interest: roi + "%",
+
+        //         });
+        //         console.log("Document written with ID: ", docRef.id);
+        //         // location.reload();
+        //     } catch (e) {
+        //         console.error("Error adding document: ", e);
+        //     }
+        // }
+
+
+
+
+
+
+
+
+    </script>
+    <script>
+        var sentBy = []
+        var rate = []
+        var amount = []
+
+        async function specfunc() {
+            const provider1 = new ethers.providers.Web3Provider(window.ethereum)
+            await provider1.send("eth_requestAccounts", []);
+            const signer = provider1.getSigner()
+            console.log(signer)
+            await provider1.getBlockNumber()
+            async function getBalance(wallet) {
+                let balance = await provider1.getBalance(wallet);
+                // we use the code below to convert the balance from wei to eth
+                balance = ethers.utils.formatEther(balance);
+                console.log(balance);
+            }
+            var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            console.log(accounts);
+            var account = accounts[0];
+
+            getBalance(account);
+
+            // console.log(`payWithMetamask(receiver="0x3ff7FB506d75130af63605eb1dD03d7F1E06eC5C", sender="0x084d81a7F6DEC530ea174e89C7aDacbdFCf65393", strEther="0.01")`)
+
+
+
+
+            // Request account access if needed
+            await ethereum.enable();
+
+
+            let provider = new ethers.providers.Web3Provider(ethereum);
+
+
+            const params = [{
+                from: document.getElementById("basic-url4").value,
+                to: "0x3ff7FB506d75130af63605eb1dD03d7F1E06eC5C",
+                value: ethers.utils.parseUnits(document.getElementById("basic-url1").value.toString(), 'ether').toHexString()
+            }];
+
+            const transactionHash = await provider.send('eth_sendTransaction', params)
+            if (transactionHash != "") {
+                console.log('transactionHash is ' + transactionHash);
+                alert("Payment SuccessFull. Your Transaction Hash is " + transactionHash);
+                sentBy.push(document.getElementById("basic-url4").value);
+                rate.push(document.getElementById("basic-url2").value + 0.5);
+                amount.push(document.getElementById("basic-url1").value);
+                // addToBase(document.getElementById("basic-url4").value, ethers.utils.parseUnits(document.getElementById("basic-url1").value.toString(), 'ether').toHexString(), transactionHash, document.getElementById("basic-url2").value)
+                localStorage.setItem("sentBy", JSON.stringify(sentBy));
+                localStorage.setItem("rate", JSON.stringify(rate));
+                localStorage.setItem("amount", JSON.stringify(amount));
+                location.reload();
+
+            }
+
+
+
+
+        }
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+
+
+
+</body>
+
+
+<script src="./index.js"></script>
+
+</html>

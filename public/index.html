@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@1,600&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Serif+4:ital,wght@1,600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet"> -->
+    <!-- <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script> -->
+
+    <!-- <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" /> -->
+
+    <title>Payscape</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #241a47f2;
+        }
+
+        #navbarSupportedContent {
+            /* display: flex; */
+            justify-content: end;
+        }
+
+        .nav-item,
+        .footer_list_items {
+            padding: 8px;
+            display: flex;
+        }
+
+
+
+        .nav-link {
+            position: relative;
+            font-size: 15px;
+            color: white !important;
+        }
+
+
+
+        .nav-link:before,
+        .footer_list_links:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #FFFF99;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+
+
+        .nav-link:hover {
+            color: #FFFF99 !important;
+        }
+
+
+
+        .nav-link:hover:before,
+        .footer_list_links:hover:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+
+
+        #navbar {
+            background-color: #1C143A !important;
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            z-index: 99;
+        }
+
+        .row {
+            width: 100%;
+            margin: 0;
+        }
+
+        #unorderList {
+            width: 70%;
+            justify-content: space-evenly;
+        }
+
+        .navbar-toggler {
+            color: #FFFF99 !important;
+            background-color: white;
+        }
+
+        #home {
+
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('images/pexels-fauxels-3183197.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #home-content-written {
+            padding: 30px;
+            margin-top: 56px;
+            height: 100vh;
+        }
+
+        div#home-content-written h2,
+
+        h3,
+        h4,
+        h6 {
+            color: #FEC001;
+        }
+
+        div#home-content-written h1 {
+            font-size: 170px;
+        }
+
+        div#home-content-written h2 {
+            font-size: 60px;
+        }
+
+        div#home-content-written p {
+            margin: 50px 0 0 0;
+        }
+
+        #searching_taxi {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.24);
+            box-shadow: 0px 5px 15px #444444;
+            backdrop-filter: blur(24px);
+
+            border-radius: 5px;
+            padding: 30px;
+        }
+
+        .input_fields {
+            color: black;
+            background-color: white;
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .input_tags {
+            border: none;
+            outline: none;
+        }
+
+        .label_tags {
+            /* width: 20%; */
+
+            font-family: 'Cabin';
+            font-style: normal;
+            /* font-weight: 500; */
+            /* font-size: 24px;
+            line-height: 29px; */
+
+            color: #444444;
+        }
+
+        ::placeholder {
+            /* width: 20%; */
+
+            font-family: 'Cabin';
+            font-style: normal;
+            font-weight: 500;
+            /* font-size: 24px;
+            line-height: 29px; */
+
+            color: #444444;
+
+        }
+
+        #search_taxi_btn {
+            margin-top: 25px;
+        }
+
+
+
+        #service_us {
+            color: #FEC001;
+            padding: 20px 0 0 0;
+        }
+
+        .writting_div {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            ;
+            flex-direction: column;
+        }
+
+        .ride_us_heads {
+            color: #FFAE00;
+        }
+
+        .ride_us_sec {
+            margin-top: 50px;
+
+        }
+
+        .ride_us_img {
+            width: 100%;
+            height: 37vh;
+            ;
+        }
+
+        #about_head {
+            color: #FFAE00;
+            padding: 20px;
+        }
+
+        #searching_taxi_div {
+            padding: 20px;
+            margin-top: 35px;
+        }
+
+        #mobile_sec_service_us {
+            display: none;
+        }
+
+        #our_fleet_head {
+            color: #FFAE00;
+
+        }
+
+        #our_fleet_div {
+
+            background: linear-gradient(0deg, rgb(212 183 208 / 20%), rgb(0 0 0 / 28%)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgb(212 184 212 / 20%)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgb(55 48 56 / 20%)), url(images/getting-Out-bg.png);
+            padding-top: 30px;
+            margin-top: 35px;
+            /* min-height: 80vh */
+            /* mix-blend-mode: exclusion; */
+        }
+
+        #our_fleet_head_div {
+            padding: 30px;
+        }
+
+        #footer_book_btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, white 0%, white 50%, #1C143A 50%, #1C143A 100%);
+            margin-top: 20px;
+        }
+
+
+
+        .footer_list_links:before {
+
+            background-color: #FEC001;
+
+        }
+
+        .footer_list_links {
+            position: relative;
+            font-size: 15px;
+            color: #FEC001 !important;
+            padding: 0.5rem;
+            text-decoration: none;
+        }
+
+        .footer_list_items {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer_img {
+            width: 95%;
+            padding: 10px;
+
+        }
+
+        #footer_img_holder {
+            justify-content: space-evenly;
+        }
+
+        #copyright_div {
+            color: white;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .loc_tags:hover {
+            cursor: pointer;
+
+
+
+        }
+
+        .loc_img {
+
+            width: 40%;
+
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+
+
+        .mySlides {
+            display: none;
+            /* background-color: rgb(28, 20, 5s8); */
+            text-align: center;
+            animation-name: fade;
+            animation-duration: 1.5s;
+            background: rgba(28, 20, 58, 0.75);
+            box-shadow: 0px 5px 15px #444444;
+            backdrop-filter: blur(50px);
+            font-family: 'Cabin', sans-serif;
+            color: white;
+        }
+
+        .slider_img {
+            vertical-align: middle;
+        }
+
+
+        .slideshow1 {
+            max-width: 65vw;
+            position: relative;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: #FEC001;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            text-decoration: none;
+        }
+
+        .prev,
+        .next:hover {
+            color: #FEC001;
+        }
+
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+
+
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            /* font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center; */
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+        .car_name {
+            color: #FFAE00;
+            font-size: 20px;
+        }
+
+        .slide_con {
+            padding-top: 40px;
+        }
+
+        .starting_price_text {
+            padding: 25px;
+        }
+
+        #about_taxi {
+            padding-top: 70px;
+        }
+
+        .rainbow-eff {
+            display: block;
+
+            background: linear-gradient(50deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+
+            .prev,
+            .next,
+            .text {
+                font-size: 11px
+            }
+        }
+
+
+        @media screen and (max-width: 992px) {
+            #navbarSupportedContent {
+                justify-content: center;
+            }
+
+            #mobile_sec_service_us {
+                display: block;
+                visibility: visible;
+            }
+
+
+
+        }
+
+        .line {
+            width: 30%;
+            height: 0.3rem;
+            background: #FFFF99;
+        }
+
+        .service-sec-img {
+            width: 10rem;
+        }
+
+        .service-cards {
+            background-color: #2f2550;
+            border: none;
+            padding: 15px;
+        }
+
+        .service-sec-inside-div:hover {
+            border: 2px solid #7000e1;
+            cursor: pointer;
+            transition: 1s;
+
+            /* Safari 3-8 */
+            transform: scale(1.2);
+        }
+
+        .service-sec-inside-div {
+            background-color: white;
+            border: 2px solid red;
+            border-radius: 10px;
+            padding: 50px;
+            transition: 1s all ease-in-out;
+        }
+
+        .ass-partner-div {
+            background-color: white;
+            margin-top: 50px;
+            border: 6px solid #b28155a1;
+            padding: 23px;
+        }
+
+        .ass-partners-pics {
+            width: 12rem;
+        }
+
+        .light-red-color {
+            background-color: #fff0f0;
+            ;
+        }
+
+        #loginInfo {
+            display: none;
+        }
+
+        .uniqueId {
+            color: white;
+        }
+
+        #uniqueId::after {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: 0.255em;
+            vertical-align: 0.255em;
+            content: "";
+            border-top: 0.3em solid;
+            border-right: 0.3em solid transparent;
+            border-bottom: 0;
+            border-left: 0.3em solid transparent;
+        }
+    </style>
+    <script>
+        // localStorage.clear()
+        function desc() {
+            if (localStorage.getItem("access") != null) {
+                console.log(1)
+
+                var user = localStorage.getItem("user")
+                document.getElementById("loginInfo").classList.remove("d-none");
+                document.getElementById("loginInfo").classList.add("d-flex");
+                // document.getElementById("logPhoto").src=user.photoURL;
+                document.getElementById("loginInfo").classList.add("flex-column");
+                document.getElementById("login").style.display = "none";
+                document.getElementById("uniqueId").innerHTML = `Welcome! ${user}`;
+            }
+
+        }
+        window.onload = desc;
+    </script>
+
+</head>
+<!-- <script>
+    $(document).ready(function () {
+        $(this).scrollTop(0);
+    });
+</script> -->
+
+<body>
+
+
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id='navbar' data-aos="zoom-in-up">
+        <div>
+            <img src="" />
+        </div>
+        <div class="container-fluid">
+            <a class="navbar-brand rainbow-eff" href="#" style=" font-size: 25px;">Payscape</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- <div style="display: flex; justify-content: center;"></div> -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center" id="unorderList">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="#">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#service_us">SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#service_us1">ABOUT US</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#footer">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-warning " id="login">Log In</button>
+                        <div class="d-none" id="loginInfo" style="position: relative;">
+                            <span class="uniqueId dropdown-toggle" id="uniqueId" data-bs-toggle="dropdown"
+                                aria-expanded="false" type="button"></span>
+                            <ul class="dropdown-menu" style="margin-top: 20px;">
+                                <li><a class="dropdown-item" href="./payment-gateway.html">Payment Gateway</a></li>
+                                <li><a class="dropdown-item" href="./wallet.html">Wallet</a></li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><button class="btn btn-primary dropdown-item" id="lgot">Log Out</button></li>
+                            </ul>
+
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Home Component -->
+
+
+    <div id="home" data-aos="zoom-in-up">
+        <div class="col-sm-12">
+            <div class="row">
+
+                <div class="col-sm-12 d-flex align-items-center justify-content-center flex-column"
+                    id="home-content-written">
+                    <h2>
+
+                        Get Ready To
+                    </h2>
+                    <h1 class="rainbow-eff">
+                        Experience
+                    </h1>
+                    <h2>
+                        a New World :)
+                    </h2>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div data-aos="fade-right" id="pc_sec_service_us" style="padding-top: 55px;">
+        <center>
+            <h1 id="service_us">
+
+                SERVICE SECTION
+            </h1>
+            <div class="line"></div>
+            <h6 class="p-5 rainbow-eff" id="service_para">We would provide the fastest and the secured transaction with
+                the benefits of freebies and loyalty with the only wallent offering you the simple interest on your
+                amount stored</h6>
+        </center>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card d-flex justify-content-center align-items-center service-cards">
+                        <div class="service-sec-inside-div">
+                            <img src="./images/service.png" alt="" class="service-sec-img mb-4">
+
+                            <h6>BEST SERVICE</h6>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card d-flex justify-content-center align-items-center service-cards">
+                        <div class="service-sec-inside-div">
+                            <img src="./images/rewards.png" alt="" class="service-sec-img mb-4">
+                            <h6>
+                                FASTEST PAYMENTS
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card d-flex justify-content-center align-items-center service-cards">
+                        <div class="service-sec-inside-div">
+                            <img src="./images/dollar.png" alt="" class="service-sec-img mb-4">
+                            <h6>
+                                EXCLUSIVE AWARDS
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+    <center>
+        <h1 id="service_us1" class="mt-5" style="color:#fec001">
+
+            ASSOCIATIVE PARTNERS
+        </h1>
+        <div class="line" style="width: 39%;"></div>
+        <h6 class="p-5 rainbow-eff" id="service_para">There are several advantages to taking on an associate business
+            partner, provided that the partner is someone you can rely on, to contribute to the operations and
+            management of your business. Before taking on a partner you will need to discuss any potential ramifications
+            with your lawyer as well as your accountant.</h6>
+
+        <div style="width: 80%;">
+            <div class="col-sm-12 ass-partner-div light-red-color">
+                <div class="row justify-content-center align-items-center ">
+                    <div class="col-sm-4">
+                        <img src="./images/starbucks.png" alt="" class="ass-partners-pics">
+                    </div>
+                    <div class="col-sm-8">
+                        <h2>
+                            STARBUCKS LOYALITY PROGRAM
+                        </h2>
+                        <p>
+                            In 2014, Starbucks introduced Starbucks Mobile Order & Pay, and conditioned millions of
+                            people to lock into their purchases ahead of time. As of 2019, the majority of members who
+                            used the app did so to order ahead and/or to pay in store. More than one-third (35%) used
+                            the feature to order ahead every time they visited a Starbucks.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 ass-partner-div light-red-color">
+                <div class="row justify-content-center align-items-center mt-4 ">
+                    <div class="col-sm-8">
+                        <h2>
+                            PRIME VIDEO LOYALITY PROGRAM
+                        </h2>
+                        <p>
+
+                            Consumers are demanding more, competition is fiercer than ever, and customer loyalty is
+                            decreasing a lot.
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="./images/prime-vid.png" alt="" class="ass-partners-pics">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 ass-partner-div light-red-color">
+                <div class="row justify-content-center align-items-center ">
+                    <div class="col-sm-4">
+                        <img src="./images/apple-2.jpeg" alt="" class="ass-partners-pics">
+                    </div>
+                    <div class="col-sm-8">
+                        <h2>
+                            APPLE LOYALITY PROGRAM
+                        </h2>
+                        Apple is giving education and business customers more incentives to join the Cult of Mac.
+                        Apple's Loyalty Program, which offers large discounts to repeat customers who spend thousands of
+                        dollars on Apple products, just got a huge upgrade.
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 ass-partner-div light-red-color">
+                <div class="row justify-content-center align-items-center mt-4">
+                    <div class="col-sm-8">
+                        <h2>
+                            NORTH FACE LOYALITY PROGRAM
+                        </h2>
+                        <p>
+                            Rewards are redeemable for the purchase of merchandise from Website or The North Face
+                            Stores.
+                        </p>
+
+                    </div>
+                    <div class="col-sm-4">
+                        <img src="./images/north-face.png" alt="" class="ass-partners-pics">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </center>
+
+    <!-- <div id="our_fleet_div" data-aos="flip-left">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-11" id="our_fleet_head_div">
+                    <h4 id="our_fleet_head">Our Fleet</h4>
+
+                </div>
+                <div class="slideshow1" data-aos="zoom-in-down">
+
+                    <div class="mySlides ">
+
+                        <div class="slide_con">
+                            <h2>Sedan</h2>
+                            <p>Suitable for a maximum of 4 Pax</p>
+
+                        </div>
+
+                        <img src="images/car.png" style="width:30%" class="slider_img">
+                        <div class="col-sm-12">
+                            <div class="row car_name">
+                                <div class="col-sm-4"> Maruti Swift Dzire </div>
+                                <div class="col-sm-4">Toyota Etios</div>
+                                <div class="col-sm-4">Sunny </div>
+
+                            </div>
+                        </div>
+                        <div class="starting_price_text">Starting from ₹ 18/km</div>
+
+                    </div>
+
+                    <div class="mySlides ">
+                        <div class="slide_con">
+                            <h2>Prime Sedan</h2>
+                            <p>Suitable for a maximum of 4 Pax</p>
+
+                        </div>
+
+
+                        <img src="images/sport-car.png" style="width:30%" class="slider_img">
+                        <div class="col-sm-12">
+                            <div class="row car_name">
+                                <div class="col-sm-4"> Honda City </div>
+                                <div class="col-sm-4">Toyota Corolla</div>
+                                <div class="col-sm-4">Ciaz </div>
+
+                            </div>
+                        </div>
+                        <div class="starting_price_text">Starting from ₹ 20/km</div>
+
+                    </div>
+
+                    <div class="mySlides ">
+                        <div class="slide_con">
+                            <h2>SUV</h2>
+                            <p>Suitable for a maximum of 6-7 Pax</p>
+
+                        </div>
+
+                        <img src="images/suv.png" style="width:30%" class="slider_img">
+                        <div class="col-sm-12">
+                            <div class="row car_name">
+                                <div class="col-sm-4"> Mahindra Bolero </div>
+                                <div class="col-sm-4">Chevrolet Tavera</div>
+                                <div class="col-sm-4">Toyota Innova </div>
+
+                            </div>
+                        </div>
+                        <div class="starting_price_text">Starting from ₹ 27/km</div>
+                    </div>
+                    <div class="mySlides ">
+                        <div class="slide_con">
+                            <h2>Hatchback</h2>
+                            <p>Suitable for a maximum of 6-7 PaxPax</p>
+
+                        </div>
+                        <img src="images/hatchback.png" style="width:30%" class="slider_img">
+                        <div class="col-sm-12">
+                            <div class="row car_name">
+                                <div class="col-sm-4"> Tata Indica </div>
+                                <div class="col-sm-4">Nissan Micra</div>
+                                <div class="col-sm-4">Maruti Ritz </div>
+
+                            </div>
+                        </div>
+                        <div class="starting_price_text">Starting from ₹ 18/km</div>
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)" style="padding-right: 30px;">❯</a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div
+        style="display: flex; justify-content: center; align-items: center; background-color:#1C143A; flex-direction: column;     padding: 50px">
+        <div style="width: 50vw; text-align: center;">
+            <h4 style="color: #FFAE00;">On-Ride Offering</h4>
+            <p style="color: white;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ratione odit eaque
+                corporis pariatur laboriosam ipsa! Itaque illum libero adipisci?</p>
+            <div class="col-sm-12" style="color: white;">
+                <div class="row">
+                    <div class="col-sm-6" style="text-align: left;">
+                        <ul>
+                            <li>Water Bottle</li>
+                            <li>Light Snack</li>
+                            <li>Premium Biscuit</li>
+                            <li>Wi-Fi</li>
+                            <li>Amazon-Kindle</li>
+                            <li>News Paper</li>
+
+                        </ul>
+                    </div>
+                    <div class="col-sm-6" style="text-align: left;">
+                        <ul>
+                            <li>Magazine</li>
+                            <li>Premium Chocolate</li>
+                            <li>Flower Bouquet</li>
+                            <li>Fruit Basket</li>
+                            <li>Soft drinks & Juices</li>
+
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div data-aos="zoom-in" id="about_taxi">
+        <center>
+            <h4 id="about_head">About MyTaxi</h4>
+            <div class="col-sm-12" style="padding: 30px;">
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-5">
+                        <img src="images/about_img.jpg" alt="" style="width: -webkit-fill-available;">
+                    </div>
+                    <div class="col-sm-5" style="display: flex; justify-content: center; align-items: center;">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat exercitationem unde
+                            voluptatem architecto error repellendus officiis facilis nihil fugit neque!</p>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
+        </center>
+
+    </div>
+     -->
+
+    <footer id="footer" class="mt-5" style="background-color: #1C143A;">
+        <div class="col-sm-12">
+            <div class="row" style="justify-content: center;
+            align-items: center;">
+
+                <div class="col-sm-8">
+                    <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-2 col-4 footer_list_items">
+                            <a class="footer_list_links" href="#">HOME</a>
+                        </div>
+                        <div class="col-sm-2 col-4 footer_list_items">
+                            <a class="footer_list_links" href="#">ABOUT US</a>
+                        </div>
+                        <div class="col-sm-2 col-4 footer_list_items">
+                            <a class="footer_list_links" href="#">BLOG</a>
+                        </div>
+                        <div class="col-sm-2 col-6 footer_list_items">
+                            <a class="footer_list_links" href="#">POLICIES</a>
+                        </div>
+                        <div class="col-sm-2 col-6 footer_list_items">
+                            <a class="footer_list_links" href="#">SERVICES</a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-4 col-4 footer_list_items">
+                            <img src="images/icons8-facebook-144.svg" alt="" class="footer_img">
+                        </div>
+                        <div class="col-sm-4 col-4 footer_list_items">
+                            <img src="images/icons8-instagram.svg" alt="" class="footer_img">
+                        </div>
+                        <div class="col-sm-4 col-4 footer_list_items">
+                            <img src="images/icons8-twitter.svg" alt="" class="footer_img">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+            <div class="row" id="copyright_div">
+                Payscape Pvt. Ltd. © 2022 All Rights Reserved
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- <h1>Welcome to My Awesome App</h1>
+    <div id="firebaseui-auth-container">
+
+        <button id="lg">Login</button>
+    </div>
+    <div id="succ">
+
+        <button id="lgot">Log out</button>
+    </div>
+    <div id="loader">Loading...</div> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/9.9.3/firebase-auth.js"></script> -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCyXBHH_TugR8PO9kWDc_fg2ElxzBIx8hE",
+            authDomain: "wallet-49b6d.firebaseapp.com",
+            projectId: "wallet-49b6d",
+            storageBucket: "wallet-49b6d.appspot.com",
+            messagingSenderId: "502565024",
+            appId: "1:502565024:web:9a2b0e551ac366d08e21c5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        let provider = new GoogleAuthProvider();
+        const auth = getAuth(app);
+        document.getElementById("login").addEventListener("click", googleLogin);
+        document.getElementById("lgot").addEventListener("click", googLgot);
+        // document.onload(function () {
+        //     if (localStorage.getItem("access") != null) {
+        //         console.log(1)
+
+        //         var user = localStorage.getItem("user")
+        //         document.getElementById("loginInfo").classList.remove("d-none");
+        //         document.getElementById("loginInfo").classList.add("d-flex");
+        //         // document.getElementById("logPhoto").src=user.photoURL;
+        //         document.getElementById("loginInfo").classList.add("flex-column");
+        //         document.getElementById("login").style.display = "none";
+        //         document.getElementById("uniqueId").innerHTML = user;
+        //     }
+        // });
+
+        function googleLogin() {
+            console.log("Login")
+            if (localStorage.getItem("access") == null) {
+                signInWithPopup(auth, provider)
+                    .then((result) => {
+                        console.log(result)
+                        // This gives you a Google Access Token. You can use it to access the Google API.
+                        const credential = GoogleAuthProvider.credentialFromResult(result);
+                        const token = credential.accessToken;
+                        // The signed-in user info.
+                        const user = result.user;
+                        const myArray = user.displayName.split(" ");
+                        localStorage.setItem("access", user.accessToken);
+                        localStorage.setItem("user", myArray[0]);
+                        document.getElementById("loginInfo").classList.remove("d-none");
+                        document.getElementById("loginInfo").classList.add("d-flex");
+                        // document.getElementById("logPhoto").src=user.photoURL;
+                        document.getElementById("loginInfo").classList.add("flex-column");
+                        document.getElementById("login").style.display = "none";
+                        document.getElementById("uniqueId").innerHTML = `Welcome! ${myArray[0]}`;
+
+
+                        // ...
+                    }).catch((error) => {
+                        // Handle Errors here.
+                        console.log(error);
+                        // ...
+                    });
+            }
+
+
+        }
+        function googLgot() {
+            console.log("Logout");
+            signOut(auth).then(() => {
+                // Sign-out successful.
+                localStorage.clear();
+                console.log("Logout Successful");
+                document.getElementById("loginInfo").classList.remove("d-flex");
+                document.getElementById("loginInfo").classList.add("d-none");
+                location.reload();
+                
+                
+                document.getElementById("login").style.display = "block";
+            }).catch((error) => {
+                // An error happened.
+            });
+
+        }
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+
+
+
+</body>
+
+
+<script src="./index.js"></script>
+
+</html>

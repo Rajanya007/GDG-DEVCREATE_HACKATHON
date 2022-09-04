@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@1,600&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Serif+4:ital,wght@1,600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" /> -->
+
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" /> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+    <title>Payment Gateway</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat';
+        }
+
+        .container,
+        .payment-gateway,
+        .box-container,
+        .all-box-container,
+        .box,
+        .box-row,
+        .left-sidebar {
+            display: flex;
+        }
+
+        .container,
+        .box-row {
+            flex-direction: row;
+        }
+
+        .box-column,
+        .payment-gateway,
+        .box-container,
+        .all-box-container,
+        .box,
+        .left-sidebar {
+            flex-direction: column;
+        }
+
+        .all-box-container {
+            margin-left: 15%;
+            gap: 40px;
+        }
+
+        .container {
+            gap: 120px;
+        }
+
+
+
+        .left-sidebar {
+            gap: 80px;
+            /* position: fixed; */
+            left: 0%;
+            color: white;
+            /* width: 26rem; */
+            /* height: 100vh; */
+            background: linear-gradient(to left, #03033f, #00001e);
+        }
+
+        .left-sidebar img {
+            margin: 20px 0px 0px 50px;
+            width: 21rem;
+            height: auto;
+        }
+
+
+
+
+        .payment-gateway p {
+            font-family: 'Montserrat';
+            border-radius: 20px;
+            padding: 2px 2px 2px 12px;
+        }
+
+        h2 {
+            text-align: center;
+            font-family: "Montserrat";
+        }
+
+        .box,
+        .box-2,
+        .box-3 {
+            border-radius: 20px;
+            box-shadow: .2px .2px 8px .2px #f1f1f1;
+            background: white;
+            padding: 20px 16px 22px 22px;
+            gap: 30px;
+            width: 70%;
+        }
+
+
+        .all-box-container .box-container:nth-child(1) .box {
+            height: 26rem;
+
+        }
+
+        .all-box-container .box-container:nth-child(2) .box {
+            height: 8rem;
+
+
+        }
+
+        .box p {
+            font-size: 1.2rem;
+            font-family: 'Montserrat';
+
+        }
+
+        .box-row {
+            gap: 30px;
+        }
+
+        .box-row input {
+            outline: none;
+            width: 40%;
+            border: none;
+            box-shadow: .2px .2px 5px .2px lightgray;
+            padding: 7px 32px 5px 8px;
+            border-left: 3px solid #00001e;
+        }
+
+        .box-row-1 input {
+            outline: none;
+            width: 85%;
+            border: none;
+            box-shadow: .2px .2px 5px .2px lightgray;
+            padding: 7px 32px 5px 8px;
+            border-left: 3px solid #00001e;
+        }
+
+        .box-row input:focus {
+            box-shadow: 0px 0px 0px 1px #002254;
+            transition: .3s;
+        }
+
+        .box-row-1 input:focus {
+            box-shadow: 0px 0px 0px 1px #002254;
+            transition: .3s;
+        }
+
+        .box-row input::placeholder {
+            font-family: "Montserrat";
+        }
+
+        .box-row-1 input::placeholder {
+            font-family: "Montserrat";
+        }
+
+        #pn:hover {
+            cursor: pointer;
+        }
+
+        #pwb:hover {
+            cursor: pointer;
+        }
+
+        #sys1 {
+            padding: 5px;
+        }
+
+        #sys2 {
+            padding: 5px;
+        }
+
+        #sys3 {
+            padding: 5px;
+        }
+
+        #sys4 {
+            padding: 5px;
+        }
+
+        #sys5 {
+            padding: 11px;
+        }
+
+        #button-agree:hover {
+            cursor: pointer;
+        }
+
+        .temp:hover {
+            cursor: pointer;
+        }
+
+        .test {
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        function desc() {
+            if (localStorage.getItem("access") != null) {
+                console.log(1)
+
+                var user = localStorage.getItem("user")
+                document.getElementById("loginInfo").classList.remove("d-none");
+                document.getElementById("loginInfo").classList.add("d-flex");
+                // document.getElementById("logPhoto").src=user.photoURL;
+                document.getElementById("loginInfo").classList.add("flex-column");
+                document.getElementById("login").style.display = "none";
+                document.getElementById("uniqueId").innerHTML = `Welcome! ${user}`;
+            }else {
+                window.location = "index.html"
+            }
+
+        }
+        window.onload = desc;
+    </script>
+</head>
+
+<body>
+    <!-- Navbar -->
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id='navbar'>
+        <div>
+            <img src="" />
+        </div>
+        <div class="container-fluid">
+            <a class="navbar-brand rainbow-eff" href="#" style=" font-size: 25px;">Payscape</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- <div style="display: flex; justify-content: center;"></div> -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center" id="unorderList">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html/#service_us">SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html/#service_us1">ABOUT US</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html/#footer">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-warning " id="login">Log In</button>
+                        <div class="d-none" id="loginInfo" style="position: relative;">
+                            <span class="uniqueId dropdown-toggle" id="uniqueId" data-bs-toggle="dropdown"
+                                aria-expanded="false" type="button"></span>
+                            <ul class="dropdown-menu" style="margin-top: 20px;">
+                                <li><a class="dropdown-item" href="./payment-gateway.html">Payment Gateway</a></li>
+                                <li><a class="dropdown-item" href="./wallet.html">Wallet</a></li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><button class="btn btn-primary dropdown-item" id="lgot">Log Out</button></li>
+                            </ul>
+
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Navbar End -->
+
+
+    <!-- Payment Div -->
+    <div class="col-sm-12" style="margin-top: 65px;">
+        <div class="d-none align-items-center justify-content-center" style="color: white;
+        position: absolute;z-index: 99;
+        background: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+        width: 100vw;
+        height: 100vh;" id="successDiv">
+            <img src="./images/attachment_113774573.png" alt="" style="width: 50%;">
+            <div>
+
+                <h3 style="margin: 0 10px; color: white;">Congrats on Your Successful transfer</h3>
+                <br>
+                <center>
+
+                    <a href="payment-gateway.html"><button class="btn btn-warning">Continue</button></a>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 left-sidebar" style="padding-top: 15px;">
+                <h2>Payment Gateway</h2>
+
+                <img src="images/bank-account.png">
+            </div>
+            <div class="col-sm-8 payment-gateway" style="padding-top: 15px;">
+                <h2 style="color: white;">Payment Gateway</h2>
+
+                <div class="all-box-container" style="margin-top: 30px;">
+
+                    <div data-aos="fade-in" class="box-container">
+
+                        <div class="box">
+
+                            <p>Billing Information</p>
+
+                            <div class="box-row">
+
+                                <input type="text" placeholder="First Name" name="fname">
+
+                                <input type="text" placeholder="Last Name" name="lname">
+
+                            </div>
+
+                            <div class="box-row">
+
+                                <input type="text" placeholder="Username" name="">
+
+                                <input type="text" placeholder="Address">
+
+                            </div>
+
+
+                            <div class="box-row">
+
+                                <input type="text" placeholder="City">
+
+                                <input type="text" placeholder="State">
+
+                            </div>
+
+                            <div class="box-row">
+
+                                <input type="text" placeholder="Postal-Code">
+
+                                <input type="text" placeholder="Email" name="emailId">
+
+                            </div>
+                            <div class="box-row">
+                                <input type="text" placeholder="Mobile">
+
+
+
+                            </div>
+
+
+                        </div>
+
+                        <br>
+
+                        <br>
+
+                        <div data-aos="fade-in" class="box-container">
+                            <div class="col-sm-12 box-3">
+                                <div class="row mt-4">
+                                    <div class="col-sm-6">
+                                        <span for="Curent">Current-Transaction</span><span style="color: red;">*</span>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="box-row-1">
+                                            <input type="text" id="currentTrans" required>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-sm-6">
+                                        <span for="Curent">Total Amount to be Saved</span><span
+                                            style="color: red;">*</span>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="box-row-1">
+                                            <input type="text" id="amSave" required>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-sm-6">
+                                        <span for="Curent">Time Period (in Month)</span><span
+                                            style="color: red;">*</span>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="box-row-1">
+                                            <input type="text" id="timePer" required>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-sm-6">
+                                        <span for="Curent">Minimum Transaction Per Day </span><span
+                                            style="color: red;">*</span>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="box-row-1">
+                                            <input type="text" id="minTrans" required>
+                                            <input type="hidden" id="hidIn">
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-4">
+                                    <button class="btn btn-warning" id="amountBtn" type="button">Submit</button>
+                                </div>
+                                <div id="showDiv" class="d-none">
+                                    <div class="row mt-4">
+                                        <div class="col-sm-6">
+                                            <span for="Curent">Money To Be Saved Per Transaction</span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="box-row-1">
+                                                <input type="text" disabled id="moneySave">
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-sm-12">
+                                            <input type="radio" name="pay" class="temp" id="normalPay">
+
+                                            <span for="Curent" class="temp">Pay Normally</span>
+
+                                        </div>
+
+
+
+
+
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col-sm-12">
+                                            <input type="radio" name="pay" class="temp" id="payBen">
+
+                                            <span for="Curent" class="temp">Pay With Benefits</span>
+
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4">
+                                        <button class="btn btn-success" type="button" id="ang">Agree and
+                                            Proceed</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script>
+
+        document.getElementById("amountBtn").addEventListener("click", () => {
+
+
+            var Asking_money = document.getElementById("amSave").value;
+            var time = document.getElementById("timePer").value;
+            var mintrans = document.getElementById("minTrans").value;
+            var currentTrans = document.getElementById("currentTrans").value;
+            if (Asking_money != "" && time != "" && mintrans != "" && currentTrans != "") {
+                document.getElementById("showDiv").classList.remove("d-none");
+                document.getElementById("showDiv").classList.add("d-block");
+                var value1 = (parseInt(Asking_money) / (30 * (parseInt(time)))) / parseInt(mintrans);
+                console.log(value1)
+                document.getElementById("moneySave").value = parseInt(value1);
+
+            }
+            else {
+                alert("Please Fill The form Properly");
+
+            }
+
+
+
+
+        })
+
+
+        $(document).ready(function () {
+            $(".system").hide();
+            $("#sys1").show();
+        })
+        window.addEventListener("load", function () {
+            AOS.init({
+                offset: 0,
+                duration: 2000
+            });
+        });
+
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCyXBHH_TugR8PO9kWDc_fg2ElxzBIx8hE",
+            authDomain: "wallet-49b6d.firebaseapp.com",
+            projectId: "wallet-49b6d",
+            storageBucket: "wallet-49b6d.appspot.com",
+            messagingSenderId: "502565024",
+            appId: "1:502565024:web:9a2b0e551ac366d08e21c5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        let provider = new GoogleAuthProvider();
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        document.getElementById("ang").addEventListener("click", agreed);
+        document.getElementById("lgot").addEventListener("click", googLgot);
+        function googLgot() {
+            console.log("Logout");
+            signOut(auth).then(() => {
+                // Sign-out successful.
+                localStorage.clear();
+                console.log("Logout Successful");
+                document.getElementById("loginInfo").classList.remove("d-flex");
+                document.getElementById("loginInfo").classList.add("d-none");
+                location.reload();
+                
+                
+                document.getElementById("login").style.display = "block";
+            }).catch((error) => {
+                // An error happened.
+            });
+
+        }
+        function agreed() {
+            window.scrollTo(0, 0);
+
+            if (document.getElementById("normalPay").checked) {
+                console.log("normal");
+                document.getElementById("hidIn").value = 1;
+                document.querySelector("body").classList.add("test")
+                document.getElementById("successDiv").classList.remove("d-none");
+                document.getElementById("successDiv").classList.add("d-flex");
+
+
+            }
+            else {
+
+                document.getElementById("hidIn").value = 0
+                document.querySelector("body").classList.add("test")
+                document.getElementById("successDiv").classList.remove("d-none");
+                document.getElementById("successDiv").classList.add("d-flex");
+                if (localStorage.getItem("amount") == null) {
+                    localStorage.setItem("amount", parseInt(document.getElementById("moneySave").value));
+
+
+                }
+                else {
+                    localStorage.setItem("amount", parseInt(localStorage.getItem("amount")) + parseInt(document.getElementById("moneySave").value));
+                    document.querySelector("body").classList.add("test")
+                    document.getElementById("successDiv").classList.remove("d-none");
+                    document.getElementById("successDiv").classList.add("d-flex");
+                }
+                try {
+                    const docRef = addDoc(collection(db, "users"), {
+                        wallet: document.getElementById("currentTrans").value + document.getElementById("moneySave").value,
+
+
+                    });
+                    // console.log("Document written with ID: ", docRef.id);
+                    // location.reload();
+                } catch (e) {
+                    console.error("Error adding document: ", e);
+                }
+
+
+            }
+
+
+        }
+        //
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

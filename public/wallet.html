@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@1,600&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Source+Serif+4:ital,wght@1,600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet"> -->
+    <!-- <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script> -->
+
+    <!-- <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" /> -->
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+
+    <script>
+        ethereum.request({ method: 'eth_requestAccounts' });
+        getAccount();
+        async function getAccount() {
+            var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            console.log(accounts);
+            var account = accounts[0];
+
+            // showAccount.innerHTML = account;
+        }
+        async function acc() {
+            var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            console.log(accounts);
+            var account = accounts[0];
+            document.getElementById("basic-url4").value = account;
+        }
+    </script>
+    <title>Wallet</title>
+
+    <style>
+        #mainDiv {
+            height: 100vh;
+        }
+
+        .temp1 {
+            color: white;
+            margin-top: 15px;
+
+        }
+
+        .lendingmoney {
+            margin-top: 15px;
+        }
+    </style>
+    <script>
+
+        function desc() {
+            if (localStorage.getItem("access") != null) {
+                console.log(1)
+                var user = localStorage.getItem("user")
+                document.getElementById("loginInfo").classList.remove("d-none");
+                document.getElementById("loginInfo").classList.add("d-flex");
+                // document.getElementById("logPhoto").src=user.photoURL;
+                document.getElementById("loginInfo").classList.add("flex-column");
+                document.getElementById("login").style.display = "none";
+                document.getElementById("uniqueId").innerHTML = `Welcome! ${user}`;
+            }
+            else {
+                window.location = "index.html"
+            }
+
+
+        }
+        window.onload = desc;
+
+    </script>
+
+</head>
+<!-- <script>
+    $(document).ready(function () {
+        $(this).scrollTop(0);
+    });
+</script> -->
+
+<body>
+
+
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id='navbar' data-aos="zoom-in-up">
+        <div>
+            <img src="" />
+        </div>
+        <div class="container-fluid">
+            <a class="navbar-brand rainbow-eff" href="#" style=" font-size: 25px;">Payscape</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- <div style="display: flex; justify-content: center;"></div> -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center" id="unorderList">
+
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="index.html">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html/#service_us">SERVICES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html/#service_us1">ABOUT US</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html/#footer">CONTACT</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-warning " id="login">Log In</button>
+                        <div class="d-none" id="loginInfo" style="position: relative;">
+                            <span class="uniqueId dropdown-toggle" id="uniqueId" data-bs-toggle="dropdown"
+                                aria-expanded="false" type="button"></span>
+                            <ul class="dropdown-menu" style="margin-top: 20px;">
+                                <li><a class="dropdown-item" href="./payment-gateway.html">Payment Gateway</a></li>
+                                <li><a class="dropdown-item" href="./wallet.html">Wallet</a></li>
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><button class="btn btn-primary dropdown-item" id="lgot">Log Out</button></li>
+                            </ul>
+
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="d-flex justify-content-center align-items-center flex-column" id="mainDiv">
+        <h3 style="margin-bottom: 20px;">Your Wallet</h3>
+
+        <div class="wallet-content">
+            <div class="wallet-first">
+                <div class="d-flex" style="background: #ffd556eb;
+                padding: 34px;
+                border-radius: 22px;">
+                    <span><img src="./images/wllet-removebg-preview.png" alt="" id="wallet-img"
+                            style="width: 70px;"></span>
+                    <div class="money-value" style="
+                    display: flex; flex-direction: column; margin:0 20px">
+                        <span id="money-value">Rs 0.00</span>
+                        <span id="balance">Your Wallet Balance</span>
+
+                    </div>
+
+
+                    <input type="text" id="walllet-id" name="wallet"
+                        placeholder="Enter amount to be added in the wallet" class="form-control"
+                        style="margin:0 20px; width: 70%;">
+
+
+                    <button type="button" class="btn btn-primary">Add money to the wallet</button>
+                </div>
+
+
+            </div>
+
+            <div style="display: flex; justify-content: space-evenly;" class="mt-5">
+                <button class="btn btn-success" type="button" onclick="lendmoney()">Lend Money</button>
+                <a href="request.html" class="btn btn-success">Request Money</a>
+            </div>
+
+
+        </div>
+        <!-- <div class="d-flex align-items-center justify-content-center" style="color: white;
+        position: absolute;
+        background: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+        width: 100vw;
+        height: 100vh;">
+            <img src="./images/attachment_113774573.png" alt="" style="width: 50%;">
+            <div>
+
+                <h3 style="margin: 0 10px; color: white;">Congrats on Your Successful transfer</h3>
+                <br>
+                <center>
+
+                    <button class="btn btn-warning">Continue</button>
+                </center>
+            </div>
+        </div> -->
+        <div id="extracon"></div>
+
+
+
+
+
+
+
+    </div>
+
+
+
+    <!-- Home Component -->
+
+
+    <script>
+        lendmoney = () => {
+            document.getElementById('extracon').innerHTML = `<table class="mt-4">
+
+<tr>
+    <td><label for="" class="temp1">Your Account Number</label></td>
+    <td><input type="text" class="form-control lendingmoney" id="basic-url4" aria-describedby="basic-addon3" disabled>
+    </td>
+</tr>
+<tr>
+    <td><label for="" class="temp1">Amount of money to be lend:</label></td>
+    <td><input type="number" class="form-control lendingmoney" id="basic-url1" aria-describedby="basic-addon3">
+    </td>
+    <td rowspan="3"><button class="btn btn-primary" type="button" id="finalsubmit" onclick="specfunc()"
+            style="margin-left: 11px;">Submit</button></td>
+</tr>
+<tr>
+    <td><label for="" class="temp1"> Rate of interset(min 2% required):</label></td>
+    <td><input type="number" class="form-control lendingmoney" id="basic-url2" aria-describedby="basic-addon3">
+    </td>
+</tr>
+
+</table>`
+            acc();
+
+        }
+
+        if (localStorage.getItem("amount") != null) {
+            document.getElementById('money-value').innerHTML = `Rs ${localStorage.getItem("amount")}`;
+        }
+        else {
+            document.getElementById('money-value').innerHTML = `Rs 0.00`;
+        }
+
+
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js"></script>
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js"
+        // import { ethers } from "https://cdn.ethers.io/lib/ethers-5.2.esm.min.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCyXBHH_TugR8PO9kWDc_fg2ElxzBIx8hE",
+            authDomain: "wallet-49b6d.firebaseapp.com",
+            projectId: "wallet-49b6d",
+            storageBucket: "wallet-49b6d.appspot.com",
+            messagingSenderId: "502565024",
+            appId: "1:502565024:web:9a2b0e551ac366d08e21c5"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        let provider = new GoogleAuthProvider();
+        const auth = getAuth(app);
+        document.getElementById("login").addEventListener("click", googleLogin);
+        document.getElementById("lgot").addEventListener("click", googLgot);
+        document.getElementById("finalsubmit1").addEventListener("click", temp);
+        function googleLogin() {
+            console.log("Login")
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    console.log(result)
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    const credential = GoogleAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    // The signed-in user info.
+                    const user = result.user;
+                    const myArray = user.displayName.split(" ");
+                    localStorage.setItem("access", user.accessToken);
+                    localStorage.setItem("user", myArray[0]);
+                    document.getElementById("loginInfo").classList.remove("d-none");
+                    document.getElementById("loginInfo").classList.add("d-flex");
+                    // document.getElementById("logPhoto").src=user.photoURL;
+                    document.getElementById("loginInfo").classList.add("flex-column");
+                    document.getElementById("login").style.display = "none";
+                    document.getElementById("uniqueId").innerHTML = `Welcome! ${myArray[0]}`;
+                }).catch((error) => {
+                    // Handle Errors here.
+                    console.log(error);
+                    // ...
+                });
+        }
+        function googLgot() {
+            console.log("Logout");
+            signOut(auth).then(() => {
+                localStorage.clear();
+                console.log("Logout Successful");
+                document.getElementById("loginInfo").classList.remove("d-flex");
+                document.getElementById("loginInfo").classList.add("d-none");
+                location.reload();
+
+
+                document.getElementById("login").style.display = "block"
+            }).catch((error) => {
+                // An error happened.
+            });
+
+        }
+
+
+        // async function addToBase(from, amount, transactionHash, roi) {
+        //     try {
+        //         const docRef = await addDoc(collection(db, "users"), {
+        //             from: from,
+        //             to: "0x3ff7FB506d75130af63605eb1dD03d7F1E06eC5C",
+        //             value: amount,
+        //             transactionHash: transactionHash,
+        //             interest: roi + "%",
+
+        //         });
+        //         console.log("Document written with ID: ", docRef.id);
+        //         // location.reload();
+        //     } catch (e) {
+        //         console.error("Error adding document: ", e);
+        //     }
+        // }
+
+
+
+
+
+
+
+
+    </script>
+    <script>
+        if (localStorage.getItem("sentBy") == null) {
+            var sentBy = []
+            var rate = []
+            var amount2 = []
+        }
+        else {
+            var sentBy = JSON.parse(localStorage.sentBy)
+            var rate = JSON.parse(localStorage.rate)
+            var amount2 = JSON.parse(localStorage.amount2)
+        }
+
+
+
+
+        async function specfunc() {
+            const provider1 = new ethers.providers.Web3Provider(window.ethereum)
+            await provider1.send("eth_requestAccounts", []);
+            const signer = provider1.getSigner()
+            console.log(signer)
+            await provider1.getBlockNumber()
+            async function getBalance(wallet) {
+                let balance = await provider1.getBalance(wallet);
+                // we use the code below to convert the balance from wei to eth
+                balance = ethers.utils.formatEther(balance);
+                console.log(balance);
+            }
+            var accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            console.log(accounts);
+            var account = accounts[0];
+
+            getBalance(account);
+
+            // console.log(`payWithMetamask(receiver="0x3ff7FB506d75130af63605eb1dD03d7F1E06eC5C", sender="0x084d81a7F6DEC530ea174e89C7aDacbdFCf65393", strEther="0.01")`)
+
+
+
+
+            // Request account access if needed
+            await ethereum.enable();
+
+
+            let provider = new ethers.providers.Web3Provider(ethereum);
+
+
+            const params = [{
+                from: document.getElementById("basic-url4").value,
+                to: "0x3ff7FB506d75130af63605eb1dD03d7F1E06eC5C",
+                value: ethers.utils.parseUnits(document.getElementById("basic-url1").value.toString(), 'ether').toHexString()
+            }];
+
+            const transactionHash = await provider.send('eth_sendTransaction', params)
+            if (transactionHash != "") {
+                console.log('transactionHash is ' + transactionHash);
+                alert("Payment SuccessFull. Your Transaction Hash is " + transactionHash);
+                sentBy.push(document.getElementById("basic-url4").value);
+                rate.push(document.getElementById("basic-url2").value);
+                amount2.push(document.getElementById("basic-url1").value);
+                // addToBase(document.getElementById("basic-url4").value, ethers.utils.parseUnits(document.getElementById("basic-url1").value.toString(), 'ether').toHexString(), transactionHash, document.getElementById("basic-url2").value)
+                localStorage.setItem("sentBy", JSON.stringify(sentBy));
+                localStorage.setItem("rate", JSON.stringify(rate));
+                localStorage.setItem("amount2", JSON.stringify(amount2));
+                location.reload();
+
+            }
+
+
+
+
+        }
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+
+
+
+</body>
+
+
+<script src="./index.js"></script>
+
+</html>
