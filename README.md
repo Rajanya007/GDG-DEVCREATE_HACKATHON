@@ -9,3 +9,14 @@ we also added many elements to keep the users locked in to using only our app. F
 
 
 Firebase hosted Link:https://wallet-49b6d.web.app/
+
+
+
+
+## Team Members UID:
+
+
+Rajanya Joshi: DCH-8336
+Anugrah Goyal: DCH-8337
+Prince Raj: DCH-8384
+Mohit Jassal:DCH-8385
